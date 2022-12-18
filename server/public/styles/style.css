@@ -9,12 +9,8 @@ table, tr, th, td, tf {
     border-collapse: collapse;
 }
 
-.dateData {
-min-width: 30vh;
-}
-
 #completedDateColumn {
-    min-width: 20rem;
+    min-width: 30rem;
 }
 
 #completedDeleteColumn {
@@ -34,11 +30,11 @@ min-width: 30vh;
 }
 
 #todoCompleteColumn {
-    min-width: 5rem;
+    min-width: 10rem;
 }
 
 #todoDeleteColumn {
-    min-width: 5rem;
+    min-width: 10rem;
 }
 
 #todoDateColumn {

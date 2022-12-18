@@ -31,6 +31,19 @@ router.get(`/`, (req, res) => {
     });
 });
 
+router.get(`/:id`, (req, res) => {
+    let id = req.params.id;
+    let sqlQuery = `
+        SELECT * FROM "todoList"
+            WHERE "id" = ${id};`;
+    pool.query(sqlQuery)
+    .then((dbRes) => {
+        res.send(dbRes);
+    }).catch((dbErr) => {
+        res.sendStatus(500);
+    });
+});
+
 router.post(`/`, (req, res) => {
     let sqlQuery = `
     INSERT INTO "todoList" ("task", "deadline")
