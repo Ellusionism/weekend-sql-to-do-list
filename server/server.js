@@ -1,6 +1,5 @@
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
-const pool = require(`./modules/pool.js`);
 const app = express();
 const PORT = 5000;
 const todoRouter = require(`./routes/todo.js`);

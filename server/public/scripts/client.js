@@ -1,41 +1,61 @@
 $(document).ready(onReady);
 
 function onReady() {
-    $(`#submit-task`).on(`click`, addTask);
-    $(`body`).on(`click`, `.completeTaskBtn`, completeTask);
-    $(`body`).on(`click`, `.deleteTodoBtn`, deleteTodo);
-    $(`body`).on(`click`, `.deleteCompletedBtn`, deleteCompleted);  
+    $(`#submitBtn`).on(`click`, addTask);
+    // $(`body`).on(`click`, `.completeTaskBtn`, completeTask);
+    // $(`body`).on(`click`, `.deleteTodoBtn`, deleteTodo);
+    // $(`body`).on(`click`, `.deleteCompletedBtn`, deleteCompleted);  
     getTodoList();
     getCompletedList();
 };
 
+function addTask() {
+    const taskToSend = {
+        task: $(`#taskInput`).val(), 
+        deadline: $(`#deadlineInput`).val()
+    };
+    console.log(`Adding task to list`, taskToSend);
+    $.ajax({
+        method: `POST`,
+        url: `/todo`,
+        data: taskToSend
+    }).then((response) => {
+        console.log(response);
+        $(`#taskInput`).empty();
+        $(`#deadlineInput`).empty();
+        getTodoList();
+    }).catch((error) => {
+        console.log(`Error in /todo client POST`, error); 
+        alert(`Error adding task to list. Please try again later.`)       
+    });
+}
+
 function getCompletedList() {
     $.ajax({
-        method: 'GET',
-        url: '/completed'
+        method: `GET`,
+        url: `/completed`
     }).then((response) => {
         renderCompletedList(response);
     }).catch((error) => {
-        console.log('error in /completed client GET', error);
+        console.log(`Error in /completed client GET`, error);
     });
 }
 
 function getTodoList() {
     $.ajax({
-        method: 'GET',
-        url: '/todo'
+        method: `GET`,
+        url: `/todo`
     }).then((response) => {
         renderTodoList(response);
     }).catch((error) => {
-        console.log('error in /todo client GET', error);
+        console.log(`Error in /todo client GET`, error);
     });
 }
 
 function renderCompletedList(data) {
-    $('#completedTableBody').empty();
-    // Add all artists to table
+    $(`#completedTableBody`).empty();
     for(let completed of data) {
-        $('#completedTableBody').append(`
+        $(`#completedTableBody`).append(`
                 <tr>
                     <td>${completed.task}</td>
                     <td>${completed.dateCompleted}</td>
@@ -48,12 +68,11 @@ function renderCompletedList(data) {
 };
 
 function renderTodoList(data) {
-    $('#todoTableBody').empty();
-    // Add all artists to table
+    $(`#todoTableBody`).empty();
     for(let todo of data) {
-        $('#todoTableBody').append(`
+        $(`#todoTableBody`).append(`
                 <tr>
-                    <td>${toto.task}</td>
+                    <td>${todo.task}</td>
                     <td>${todo.deadline}</td>
                     <td>
                         <button data-id=${todo.id} class="completeTaskBtn">✅</button>

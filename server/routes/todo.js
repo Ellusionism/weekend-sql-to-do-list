@@ -16,4 +16,20 @@ router.get(`/`, (req, res) => {
     });
 });
 
+router.post(`/`, (req, res) => {
+    let sqlQuery = `
+    INSERT INTO "todoList" ("task", "deadline")
+    VALUES ($1, $2);
+    `
+    let sqlValues = [req.body.task, req.body.deadline];
+    pool.query(sqlQuery, sqlValues)
+    .then((dbRes) => {
+    res.sendStatus(201);
+    })
+    .catch((dbErr) => {
+    console.log(`Error in /todo server POST`, dbErr);
+    res.sendStatus(500);
+    });
+});
+
 module.exports = router;
