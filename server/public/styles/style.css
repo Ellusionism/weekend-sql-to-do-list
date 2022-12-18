@@ -7,7 +7,38 @@ table, tr, th, td, tf {
     margin: auto;
     border: 1px solid black;
     border-collapse: collapse;
-    min-width: 80vh;
+}
+
+.dateData {
+min-width: 30vh;
+}
+
+#completedDateColumn {
+    min-width: 20rem;
+}
+
+#completedTaskColumn {
+    min-width: 50rem;
+}
+
+#taskInput {
+    min-width: 40rem;
+}
+
+#deadlineInput {
+    min-width: 10rem;
+}
+
+#todoBtnColumn {
+    min-width: 5rem;
+}
+
+#todoDateColumn {
+    min-width: 15rem;
+    }
+
+#todoTaskColumn {
+min-width: 50rem;
 }
 
 #todoTableFieldDiv {
