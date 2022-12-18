@@ -17,6 +17,7 @@ router.delete(`/:id`, (req, res) => {
         res.sendStatus(500);
     });
 });
+// Route to delete the selected item from the completedList table in the database
 
 router.get(`/`, (req, res) => {
     let sqlQuery = `
@@ -31,6 +32,7 @@ router.get(`/`, (req, res) => {
         res.sendStatus(500);
     });
 });
+// Route to get all items in the completedList for rendering on the DOM
 
 router.post(`/`, (req, res) => {
     let sqlQuery = `
@@ -47,5 +49,6 @@ router.post(`/`, (req, res) => {
     res.sendStatus(500);
     });
 });
+// Route to add an item to the completedList from todoList
 
 module.exports = router;

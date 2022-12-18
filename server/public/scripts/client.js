@@ -8,6 +8,7 @@ function onReady() {
     getTodoList();
     getCompletedList();
 };
+// Click listeners, and functions to render the data when the page is loaded
 
 function addTask() {
     const taskToSend = {
@@ -32,6 +33,7 @@ function addTask() {
         alert(`ERROR: Please make sure all input fields are filled out before submitting a task`)
     };
 }
+// Adds the input field data to the todoList database table
 
 function completeTask () {
     let id = $(this).data().id;
@@ -61,6 +63,7 @@ function completeTask () {
         console.log(`Error in completeTask client POST`, error);      
     });
 };
+// Adds the selected data to the completedList database table, and removes it from the todoList database table
 
 function deleteCompleted () {
     let id = $(this).data().id;
@@ -75,6 +78,7 @@ function deleteCompleted () {
         console.log(`Error in /completed client DELETE`, error);
     });
 };
+// Removes the selected data from the completedList database table
 
 function deleteTodo () {
     let id = $(this).data().id;
@@ -88,6 +92,7 @@ function deleteTodo () {
         console.log(`Error in /todo client DELETE`, error);
     });
 };
+// Removes the selected data from the todoList database table
 
 function getCompletedList() {
     $.ajax({
@@ -99,6 +104,7 @@ function getCompletedList() {
         console.log(`Error in /completed client GET`, error);
     });
 }
+// Gets all the data from the todoList database table to render on the DOM
 
 function getTodoList() {
     $.ajax({
@@ -110,6 +116,7 @@ function getTodoList() {
         console.log(`Error in /todo client GET`, error);
     });
 }
+// Gets all the data from the todoList database table to render on the DOM
 
 function renderCompletedList(data) {
     $(`#completedTableBody`).empty();
@@ -125,6 +132,7 @@ function renderCompletedList(data) {
         `);
     };
 };
+// Renders information from the /completed GET route on the DOM
 
 function renderTodoList(data) {
     $(`#todoTableBody`).empty();
@@ -143,3 +151,4 @@ function renderTodoList(data) {
         `);
     };
 };
+// Renders information from the /todo GET route on the DOM

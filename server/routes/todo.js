@@ -17,6 +17,7 @@ router.delete(`/:id`, (req, res) => {
         res.sendStatus(500);
     });
 });
+// Route to delete the selected item from the todoList table in the database
 
 router.get(`/`, (req, res) => {
     let sqlQuery = `
@@ -30,19 +31,7 @@ router.get(`/`, (req, res) => {
         res.sendStatus(500);
     });
 });
-
-router.get(`/:id`, (req, res) => {
-    let id = req.params.id;
-    let sqlQuery = `
-        SELECT * FROM "todoList"
-            WHERE "id" = ${id};`;
-    pool.query(sqlQuery)
-    .then((dbRes) => {
-        res.send(dbRes);
-    }).catch((dbErr) => {
-        res.sendStatus(500);
-    });
-});
+// Route to get all items in the todoList for rendering on the DOM
 
 router.post(`/`, (req, res) => {
     let sqlQuery = `
@@ -59,5 +48,6 @@ router.post(`/`, (req, res) => {
     res.sendStatus(500);
     });
 });
+// Route to submit an item to the todoList from the DOM inputs
 
 module.exports = router;

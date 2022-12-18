@@ -1,3 +1,4 @@
+/* Universal Styling */
 *, *:before, *:after {
     box-sizing: border-box;
     text-align: center;
@@ -61,6 +62,8 @@ tbody tr:nth-child(even) {
 tbody tr:nth-child(odd) {
     background-color: #60A561;
 }
+
+/* ID Styling */
 
 #inputDiv {
     padding-bottom: 1rem;
