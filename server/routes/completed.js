@@ -2,8 +2,23 @@ const express = require(`express`);
 const router = express.Router();
 const pool = require(`../modules/pool.js`);
 
+router.delete(`/:id`, (req, res) => {
+    let id = req.params.id;
+    let sqlQuery = `
+    DELETE FROM "completedList"
+    WHERE "id"=$1;
+    `
+    let sqlValues = [id];
+    pool.query(sqlQuery, sqlValues)
+    .then((dbRes) => {
+        res.sendStatus(200);
+    }).catch((dbErr) => {
+        console.log(`Error in /completed server DELETE`, dbErr);
+        res.sendStatus(500);
+    });
+});
+
 router.get(`/`, (req, res) => {
-    console.log(`In /completed GET`);
     let sqlQuery = `
         SELECT * FROM "completedList"
             ORDER BY "dateCompleted" ASC;`;

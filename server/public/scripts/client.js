@@ -3,8 +3,8 @@ $(document).ready(onReady);
 function onReady() {
     $(`#submitBtn`).on(`click`, addTask);
     // $(`body`).on(`click`, `.completeTaskBtn`, completeTask);
-    // $(`body`).on(`click`, `.deleteTodoBtn`, deleteTodo);
-    // $(`body`).on(`click`, `.deleteCompletedBtn`, deleteCompleted);  
+    $(`body`).on(`click`, `.deleteTodoBtn`, deleteTodo);
+    $(`body`).on(`click`, `.deleteCompletedBtn`, deleteCompleted);  
     getTodoList();
     getCompletedList();
 };
@@ -29,6 +29,33 @@ function addTask() {
         alert(`Error adding task to list. Please try again later.`)       
     });
 }
+
+function deleteCompleted () {
+    let id = $(this).data().id;
+    console.log(id)
+    $.ajax({
+        type:'DELETE',
+        url:`/completed/${id}`
+    }).then ((response) => {
+        console.log(response);
+        getCompletedList();
+    }).catch((error) => {
+        console.log(`Error in /completed client DELETE`, error);
+    });
+};
+
+function deleteTodo () {
+    let id = $(this).data().id;
+    $.ajax({
+        type:'DELETE',
+        url:`/todo/${id}`
+    }).then ((response) => {
+        console.log(response);
+        getTodoList();
+    }).catch((error) => {
+        console.log(`Error in /todo client DELETE`, error);
+    });
+};
 
 function getCompletedList() {
     $.ajax({
