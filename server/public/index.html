@@ -16,13 +16,13 @@
         </header>
         <main>
             <section id="inputDiv">
-                <input id="taskInput" type="text" placeholder="Enter a description of the task to be done...">
+                <input id="taskInput" type="text" placeholder="Enter a description of your to-do...">
                 <input id="deadlineInput" type="date" placeholder="Deadline">
-                <button type="submit" id="submitBtn">Submit</button>
+                <button id="submitBtn">Submit</button>
             </section>
-            <section id="todoTableDiv">
-                <h3 class="tableTitle">To-do List</h3>
-                <table>
+            <section>
+                <h3>To-do List</h3>
+                <table  id="todoTable">
                     <thead>
                         <tr>
                             <th id="todoTaskColumn">To-do:</th>
@@ -33,14 +33,11 @@
                     </thead>
                     <tbody id="todoTableBody">
                     </tbody>
-                    <!-- <tfoot>
-                        <td id="todoTableFoot"></td>
-                    </tfoot> -->
                 </table>
             </section>
-            <section id="completedTableDiv">
-                <h3 class="tableTitle">Completed Tasks</h3>
-                <table>
+            <section>
+                <h3>Completed Tasks</h3>
+                <table id="completedTable">
                     <thead>
                         <tr>
                             <th id="completedTaskColumn">Task:</th>
@@ -50,9 +47,6 @@
                     </thead>
                     <tbody id="completedTableBody">
                     </tbody>
-                    <!-- <tfoot>
-                        <td id="completedTableFoot"></td>
-                    </tfoot> -->
                 </table>
             </section>
         </main>

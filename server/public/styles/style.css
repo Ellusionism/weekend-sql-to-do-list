@@ -3,10 +3,69 @@
     text-align: center;
 }
 
+body {
+    background-color: #233329;
+}
+
+h1, h3 {
+    display: inline-block;
+    padding: 0.5rem;
+    color: #233329;
+    background-color: #A63446;
+    border: 3px dotted #FBFEF9;
+}
+
 table, tr, th, td, tf {
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid #233329;
     border-collapse: collapse;
+    color: #A63446;
+}
+
+table {
+    width: 80rem;
+}
+
+thead th {
+    background-color: #FBFEF9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #7FB069;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #60A561;
+}
+
+#submitBtn {
+    background-color: #A63446;
+}
+
+#deadlineInput {
+    min-width: 10rem;
+    background-color: #FBFEF9;
+}
+
+#taskInput {
+    min-width: 40rem;
+    background-color: #FBFEF9;
+}
+
+#todoCompleteColumn {
+    min-width: 5rem;
+}
+
+#todoDeleteColumn {
+    min-width: 5rem;
+}
+
+#todoDateColumn {
+    min-width: 25rem;
+    }
+
+#todoTaskColumn {
+min-width: 45rem;
 }
 
 #completedDateColumn {
@@ -19,32 +78,4 @@ table, tr, th, td, tf {
 
 #completedTaskColumn {
     min-width: 45rem;
-}
-
-#taskInput {
-    min-width: 40rem;
-}
-
-#deadlineInput {
-    min-width: 10rem;
-}
-
-#todoCompleteColumn {
-    min-width: 10rem;
-}
-
-#todoDeleteColumn {
-    min-width: 10rem;
-}
-
-#todoDateColumn {
-    min-width: 15rem;
-    }
-
-#todoTaskColumn {
-min-width: 45rem;
-}
-
-#todoTableDiv {
-    margin-bottom: 5vh;
 }
