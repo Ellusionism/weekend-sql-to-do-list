@@ -3,12 +3,52 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>To-</title>
+        <title>To-Do List</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="./styles/style.css">
     </head>
     <body>
-        
+        <header id="headerDiv">
+            <h1>My To-do List</h1>
+        </header>
+        <main>
+            <section id="inputDiv">
+                <input id="taskTodo" type="text" placeholder="Remember to...">
+                <input id="dueDate" type="date" placeholder="Deadline">
+            </section>
+            <section id="todoTableFieldDiv">
+                <h3 class="tableTitle">To-do List</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>To-do:</th><th>Deadline:</th>
+                        </tr>
+                    </thead>
+                    <tbody id="todoTable">
+
+                    </tbody>
+                    <tfoot id="todoTableFoot">
+
+                    </tfoot>
+                </table>
+            </section>
+            <section id="completedTaskTableDiv">
+                <h3 class="tableTitle">Completed Tasks</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task:</th><th>Date Completed:</th>
+                        </tr>
+                    </thead>
+                    <tbody id="completedTaskTable">
+
+                    </tbody>
+                    <tfoot id="completedTaskTableFoot">
+
+                    </tfoot>
+                </table>
+            </section>
+        </main>
     </body>
 </html>

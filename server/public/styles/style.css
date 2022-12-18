@@ -1,0 +1,15 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+table, tr, th, td, tf {
+    margin: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    min-width: 80vh;
+}
+
+#todoTableFieldDiv {
+    margin-bottom: 5vh;
+}
