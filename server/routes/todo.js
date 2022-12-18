@@ -21,7 +21,7 @@ router.delete(`/:id`, (req, res) => {
 router.get(`/`, (req, res) => {
     let sqlQuery = `
         SELECT * FROM "todoList"
-            ORDER BY "deadline" DESC;`;
+            ORDER BY "deadline" ASC;`;
     pool.query(sqlQuery)
     .then((dbRes) => {
         let todoTableData = dbRes.rows;
